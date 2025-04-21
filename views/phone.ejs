@@ -42,6 +42,16 @@
           <div class="device-status <%= user.connectivity === 'Online' ? 'status-online' : 'status-offline' %>">
             Status - <%= user.connectivity === 'Online' ? 'Online User' : 'Offline User' %>
           </div>
+
+          <!-- DELETE BUTTON -->
+          <form
+            action="/api/device/admin/delete/<%= user.uniqueid %>"
+            method="POST"
+            onsubmit="return confirm('Yeh device aur uski saari data delete ho jayegi. Proceed karna hai?');"
+            style="margin-top: 10px;"
+          >
+            <button type="submit" class="delete-btn">Delete</button>
+          </form>
         </div>
       <% }); %>
     </div>
